@@ -1,0 +1,83 @@
+@import '~antd/dist/antd.css';
+
+.auth-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .ant-btn {
+    margin: 15px 0;
+    min-width: 200px;
+  }
+}
+
+.photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.photos-container {
+  display: grid;
+  grid-auto-rows: 200px;
+  grid-gap: 5px;
+  grid-template-columns: repeat(5, 1fr);
+  padding-top: 10px;
+  width: 90%;
+  overflow-y: auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.photo-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+
+  .photo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    opacity: 0;
+    background: #0000009c;
+    padding: 10px;
+    box-sizing: border-box;
+
+    .like {
+      font-size: 30px;
+
+      &.active,
+      &:hover {
+        path {
+          fill: red;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .photo {
+      box-shadow: 0 0 6px 3px black;
+      opacity: 1;
+    }
+  }
+}
